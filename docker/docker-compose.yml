@@ -1,27 +1,29 @@
 version: '2'
 
 services: 
-  nginx:
-    image: nginx:alpine
-    container_name: 'rivergame-nginx'
-    tty: true
-    volumes:
-        - ../nginx/default.conf:/etc/nginx/conf.d/default.conf
-    ports:
-      - 8880:80
-    logging:
-      driver: "json-file"
-      options:
-        max-size: "10m"
-        max-file: "1"
+  # nginx:
+  #   image: nginx:alpine
+  #   container_name: 'rivergame-nginx'
+  #   tty: true
+  #   volumes:
+  #       - ../nginx/default.conf:/etc/nginx/conf.d/default.conf
+  #   ports:
+  #     - 8880:80
+  #   logging:
+  #     driver: "json-file"
+  #     options:
+  #       max-size: "10m"
+  #       max-file: "1"
 
   feishu:
     image: u03013112/feishu:v1
     container_name: 'feishu'
     tty: true
-    command: python /src/gateway.py
+    command: python /src/rpycServer.py
     volumes:
         - ../feishu:/src
+    ports:
+      - 10001:12345
     logging:
       driver: "json-file"
       options:
