@@ -251,12 +251,16 @@ def sendMessageDebug(message):
     token = getTenantAccessToken()
     sendMessage(token,message,'oc_1e418dff75881d2b0d85a5f701262cb8')
 
+def sendMessageWithoutToken(message,chatId):
+    token = getTenantAccessToken()
+    sendMessage(token,message,chatId)
+
 if __name__ == '__main__':
     # print(getTenantAccessToken())
     # print(createDoc(getTenantAccessToken(),'一篇新的文档'))
 
     token = getTenantAccessToken()
     # sendMessage(token,'今日iOS海外AI速度报告：https://rivergame.feishu.cn/docx/FGWld7bQboqDJux6axPcx5TOnIc')
-    # print(getAllChatId(token))
-    sendMessage(token,'debug','oc_1e418dff75881d2b0d85a5f701262cb8')
+    print(getAllChatId(token))
+    # sendMessage(token,'debug','oc_1e418dff75881d2b0d85a5f701262cb8')
 
